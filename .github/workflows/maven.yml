@@ -28,5 +28,5 @@ jobs:
         cp -r .platform project
         cp -r .ebextensions project
         cp -r Procfile project
-        cp -r ../target/sslDemo-1.0-SNAPSHOT.jar project/sslDemo-1.0-SNAPSHOT.jar
+        cp -r ../target/sslDemo-1.0-SNAPSHOT/sslDemo-1.0-SNAPSHOT.jar project/sslDemo-1.0-SNAPSHOT.jar
         cd project; zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip *
