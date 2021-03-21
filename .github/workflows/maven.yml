@@ -24,4 +24,5 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: zip the build
       run: |
+        echo "web: java -jar ${{ github.event.repository.name }}-${{ github.event.inputs.version }}" > Procfile
         zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip .platform .ebextensions Procfile ./target/*.jar
