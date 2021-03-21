@@ -24,9 +24,4 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: zip the build
       run: |
-        mkdir project
-        cp -r .platform project
-        cp -r .ebextensions project
-        cp -r Procfile project
-        cp -r ./target/sslDemo-1.0-SNAPSHOT.jar project/sslDemo-1.0-SNAPSHOT.jar
-        cd project; zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip *
+        zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip .platform .ebextensions Procfile ./target/sslDemo-1.0-SNAPSHOT.jar
