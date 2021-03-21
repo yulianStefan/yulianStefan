@@ -25,4 +25,5 @@ jobs:
     - name: zip the build
       run: |
         echo "web: java -jar ${{ github.event.repository.name }}-${{ github.event.inputs.version }}.jar" > Procfile
-        zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip .platform .ebextensions Procfile ../*.jar
+        cp ./target/*.jar ./
+        zip -r ../${{ github.event.repository.name }}-${{ github.event.inputs.version }}.zip .platform .ebextensions Procfile *.jar
